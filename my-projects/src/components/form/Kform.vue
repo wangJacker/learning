@@ -1,7 +1,7 @@
 <template>
   <div>
     <div @click="handleClick">{{msg}}</div>
-    <span>{{foo}}</span>
+    <span @click="$parent.$emit('borather','123456')">{{foo}}</span>
   </div>
 </template>
 
@@ -15,13 +15,15 @@ export default Vue.extend({
       default: "456454566456"
     }
   },
+  // inject: ["dong"],
   data() {
     return {
       foo: "value"
     };
   },
   methods: {
-    handleClick(e: any) {
+    handleClick(e: object) {
+      // console.log(this.dong);
       this.$emit("handleClick", "aaaa", e);
     }
   }
